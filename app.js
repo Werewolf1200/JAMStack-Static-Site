@@ -21,6 +21,53 @@ app.use(express.static(path.join(__dirname, "public"))); // Directorio de los ar
 const pagesDir = path.join(__dirname, "pages");
 const files = await fs.readdir(pagesDir);
 
+// Renderizar Archivos HTMl y MD
+for (let file of files) {
+    const filePath = path.join(pagesDir, file);
+    let extName = path.extname(file);
+
+    console.log(file, filePath, extName);
+
+    if (extName === ".md" || extName === ".pug" || extName === ".html") {
+        let fileName = path.basename(file, extName);
+        console.log(fileName);
+
+        app.get(`/${fileName}`, async (req, res) => {
+
+            try {
+                if (extName === ".pug") {
+                    res.render(fileName);
+                }
+
+                if (extName === ".html") {
+                    res.sendFile(filePath);
+                }
+
+                if (extName === ".md") {
+                    let fileContent = await fs.readFile(filePath, "utf-8");
+                    let { attributes: frontMatterAtribbutes, body } = fm(fileContent);
+
+                    let contentHTML = markdownIt().render(body); // Convertir MD a HTML
+                    res.render("layout-md", { ...attributes, contentHTML });
+                }
+
+            } catch (err) {
+                res.status(404).render("error404");
+            }
+        })
+    }
+}
+
+// Pagina Principal
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+// Error 404
+app.use((req, res) => {
+    res.status(404).render("error404")
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
