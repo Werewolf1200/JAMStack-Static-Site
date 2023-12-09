@@ -1,6 +1,6 @@
 import express from "express";
-import fs from "";
-import path from "";
+import fs from "fs/promises";
+import path from "path";
 import { fileURLToPath } from "url"
 import markdownIt from "markdown-it";
 import fm from "front-matter";
@@ -45,7 +45,7 @@ for (let file of files) {
 
                 if (extName === ".md") {
                     let fileContent = await fs.readFile(filePath, "utf-8");
-                    let { attributes: frontMatterAtribbutes, body } = fm(fileContent);
+                    let { attributes: frontMatterAttributes, body } = fm(fileContent);
 
                     let contentHTML = markdownIt().render(body); // Convertir MD a HTML
                     res.render("layout-md", { ...attributes, contentHTML });

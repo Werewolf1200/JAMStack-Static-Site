@@ -1,7 +1,7 @@
 {
-  "name": "JAMStack - SSG",
+  "name": "jamstack-nodejs",
   "version": "1.0.0",
-  "description": "Sitio con JAMStack, curso NodeJS",
+  "description": "sitio con jamstack, curso nodejs",
   "main": "index.js",
   "type": "module",
   "scripts": {
