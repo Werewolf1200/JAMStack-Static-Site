@@ -1,5 +1,4 @@
 ---
-layout: layout-md
 title: NodeJS
 ---
 
@@ -7,9 +6,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam saepe labore,
 
 ## _Event Loop_
 
-![Event Loop] IMAGEN
+![Event Loop](https://jonmircha.com/img/blog/git-centr-decentr.png)
 
 - item 1
 - item 2
 
-![Ir al Home] (/).
+[Ir al Home](/)

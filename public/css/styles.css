@@ -24,3 +24,7 @@ img {
     background-color: #ddd;
 }
 
+.error404 {
+    font-size: xx-large;
+    color: red;
+}

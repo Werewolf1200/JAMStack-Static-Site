@@ -1,5 +1,4 @@
 ---
-layout: layout-md
 title: Git
 ---
 
@@ -7,9 +6,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam saepe labore,
 
 ## Flujo básico de _Git_
 
-![Flujo Básico de Git] IMAGEN
+![Flujo Básico de Git](https://jonmircha.com/img/blog/git-flow.png)
 
 - item 1
 - item 2
 
-![Ir al Home] (/).
+[Ir al Home](/)

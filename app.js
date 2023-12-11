@@ -47,6 +47,8 @@ for (let file of files) {
                     let fileContent = await fs.readFile(filePath, "utf-8");
                     let { attributes: frontMatterAttributes, body } = fm(fileContent);
 
+                    let attributes = frontMatterAttributes;
+
                     let contentHTML = markdownIt().render(body); // Convertir MD a HTML
                     res.render("layout-md", { ...attributes, contentHTML });
                 }

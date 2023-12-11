@@ -6,7 +6,9 @@ html(lang="en")
         link(rel="stylesheet", href="/css/styles.css")
         title= title ? title : "Articulo de Blog"
     body
-        h1= title
-        hr
-        block content
+        main.container
+            h1= title
+            hr
+            block content
+                != contentHTML
         script(src="/js/main.js", type="module")
